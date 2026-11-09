@@ -31,6 +31,12 @@ class Settings(BaseSettings):
     # Redis
     redis_url: str = "redis://redis:6379/0"
 
+    # JWT
+    secret_key: SecretStr
+    jwt_algorithm: str = "HS256"
+    access_token_expire_minutes: int = 15
+    refresh_token_expire_days: int = 7
+
     def _build_url(self, driver: str, db_name: str | None = None) -> str:
         return URL.create(
             drivername=driver,
