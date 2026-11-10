@@ -10,7 +10,7 @@ from app.core.config import settings
 from app.core.database import Base, get_db
 from app.main import app
 from app.users import models
-
+from app.products import models as product_models
 
 TEST_DB_NAME = f"{settings.postgres_db}_test"
 
