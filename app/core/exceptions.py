@@ -22,3 +22,7 @@ class PermissionDenied(AppError):
     status_code = 403
     detail = "Not enough permissions"
 
+
+class ProductNotFound(AppError):
+    status_code = 404
+    detail = "Product not found"
