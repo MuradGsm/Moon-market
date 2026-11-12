@@ -3,7 +3,6 @@ import uuid
 import pytest_asyncio
 from httpx import AsyncClient
 
-from app.products import models as product_models  # noqa: F401  (таблица products в metadata)
 from app.users.models import User, UserRole
 
 PASSWORD = "StrongPass123"
@@ -11,7 +10,6 @@ PASSWORD = "StrongPass123"
 
 @pytest_asyncio.fixture
 async def make_user(client: AsyncClient, session_factory):
-
     async def _make(email: str, role: UserRole = UserRole.BUYER) -> dict:
         response = await client.post(
             "/auth/register", json={"email": email, "password": PASSWORD}
