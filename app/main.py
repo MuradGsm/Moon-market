@@ -9,6 +9,7 @@ from app.core.database import DbSession, engine
 from app.core.exceptions import AppError
 from app.users.router import auth_router, users_router
 from app.products.router import router as product_router
+from app.orders.router import router as order_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -33,6 +34,8 @@ async def health(request: Request, db: DbSession):
 app.include_router(auth_router)
 app.include_router(users_router)
 app.include_router(product_router)
+app.include_router(order_router)
+
 
 @app.exception_handler(AppError)
 async def app_error_handler(request: Request, exc: AppError):

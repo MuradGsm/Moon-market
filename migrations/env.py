@@ -5,8 +5,9 @@ from sqlalchemy import engine_from_config, pool
 
 from app.core.config import settings
 from app.core.database import Base
-from app.users import models  # noqa: F401
+from app.users import models  
 from app.products import models as product_models
+from app.orders import models as order_models 
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.alembic_database_url)
