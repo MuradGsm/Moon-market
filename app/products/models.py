@@ -17,6 +17,11 @@ class Product(Base):
         CheckConstraint("price >= 0", name="price_non_negative"),
         CheckConstraint("stock >= 0", name="stock_non_negative"),
         Index("ix_products_is_active_created_at", "is_active", "created_at"),
+        Index(
+            "ix_products_title_trgm", 
+            "title", postgresql_using="gin", 
+            postgresql_ops={"title": "gin_trgm_ops"}
+        )
     )
 
     id: Mapped[uuid.UUID] = mapped_column(
