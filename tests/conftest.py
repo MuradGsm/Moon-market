@@ -13,6 +13,7 @@ from app.core.redis import get_redis
 from app.main import app
 from app.products import models as product_models  # noqa: F401
 from app.users import models  # noqa: F401
+from app.orders import models as order_models 
 
 TEST_DB_NAME = f"{settings.postgres_db}_test"
 
